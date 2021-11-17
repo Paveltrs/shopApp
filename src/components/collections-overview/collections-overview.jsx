@@ -11,15 +11,14 @@ import './collections-overview.scss'
 
 const CollectionsOverview = ({ collections }) => (
     <div className='collections-overview'>
-      { collections.map(({ id, ...otherCollectionProps }) => (
-        <CollectionPreview key={id} {...otherCollectionProps} />
+      {collections.map(({ id, ...otherCollectionProps }) => (
+          <CollectionPreview key={id} {...otherCollectionProps} />
       ))}
     </div>
-  );
-  
-  const mapStateToProps = createStructuredSelector({
-    collections: selectCollectionsForPreview
-  });
-  
-  export default connect
-  (mapStateToProps)(CollectionsOverview);
+);
+
+const mapStateToProps = createStructuredSelector({
+  collections: selectCollectionsForPreview
+});
+
+export default connect(mapStateToProps)(CollectionsOverview);
